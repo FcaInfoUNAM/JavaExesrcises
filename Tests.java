@@ -1,5 +1,7 @@
 package JavaExcesrcises;
 
+import JavaExcesrcises.Sobrecarga.Alumno;
+
 public class Tests{
 
     public static void main(String[] args) {
@@ -46,7 +48,15 @@ public class Tests{
             errorMsg.concat(" Padre");
         }
 
-        System.out.println(coleccion.transport.size());
+        //Sobrecarga
+        Sobrecarga sbc = new Sobrecarga("Pepe", "Progra", 5);
+        Alumno alumno = sbc.new Alumno("Pepe", "Progra", 0);
+        if (alumno.reprobar()!=":("){
+                success =false;
+                errorMsg.concat(" Sobrecarga");
+        }
+
+
         if (success)
             System.out.println(success);
         else
