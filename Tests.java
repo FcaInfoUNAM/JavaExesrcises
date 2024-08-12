@@ -1,6 +1,8 @@
-package JavaExcesrcises;
-
-import JavaExcesrcises.Sobrecarga.Alumno;
+import Exercises.Colecciones;
+import Exercises.DataTypes;
+import Exercises.Padre;
+import Exercises.Sobrecarga;
+import Exercises.Alumno;
 
 public class Tests{
 
@@ -8,18 +10,18 @@ public class Tests{
         boolean success = true;
         String errorMsg = "";
         //Data Types
-        DataTypes empryDataTypes = newDataTypes();
-        DataTypes dataTypes = newDataTypes("String",5,3.2f,'B',true);
+        DataTypes emptyDataTypes = new DataTypes();
+        DataTypes dataTypes = new DataTypes("String",5,3.2f,'B',true);
 
-        if (! (empryDataTypes.cadena == "Hola Mundo"))
+        if (! (emptyDataTypes.cadena == "Hola Mundo"))
             success = false;
-        if (! (empryDataTypes.caracter == 'A'))
+        if (! (emptyDataTypes.caracter == 'A'))
             success = false;
-        if (! (empryDataTypes.entero == 10))
+        if (! (emptyDataTypes.entero == 10))
             success = false;
-        if (! (empryDataTypes.flotante == 5.9f))
+        if (! (emptyDataTypes.flotante == 5.9f))
             success = false;
-        if (! (empryDataTypes.boleano))
+        if (! (emptyDataTypes.boleano))
             success = false;
         if (! (dataTypes.cadena == "String"))
             success = false;
@@ -50,7 +52,7 @@ public class Tests{
 
         //Sobrecarga
         Sobrecarga sbc = new Sobrecarga("Pepe", "Progra", 5);
-        Alumno alumno = sbc.new Alumno("Pepe", "Progra", 0);
+        Alumno alumno = new Alumno("Pepe", "Progra", 0);
         if (alumno.reprobar()!=":("){
                 success =false;
                 errorMsg.concat(" Sobrecarga");
