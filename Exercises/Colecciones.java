@@ -1,21 +1,23 @@
 package Exercises;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 
 
 public class Colecciones {
-    ArrayList<String> cars ;
+    ArrayList<String> cars;
     String[] bikes;
     Set<String> bicicles;
-    HashMap<Integer, String> transport;
+    public HashMap<Integer, String> transport;
 
     public Colecciones(){
-        this.cars = new ArrayList<String>();
+        this.cars = new ArrayList<>();
         this.bikes = new String[10];
-        this.bicicles = new HashSet<String>();
-        this.transport= new HashMap<Integer, String>();
+        this.bicicles = new HashSet<>();
+        this.transport= new HashMap<>();
     }
 
     public void inicializar(){
@@ -31,17 +33,25 @@ public class Colecciones {
         this.bikes[4]="Honda CMX500A2 SE Rebel.";
         //bicicletas 
         this.bicicles.add("TREK MADONE 7 DIAMOND");
-        this.bicicles.add("TREK MADONE 7 DIAMOND");
-        this.bicicles.add("TREK MADONE 7 DIAMOND");
-        this.bicicles.add("AURUMANIA CRYSTAL EDITION GOLD BIKE");
-        this.bicicles.add("AURUMANIA CRYSTAL EDITION GOLD BIKE");
         this.bicicles.add("AURUMANIA CRYSTAL EDITION GOLD BIKE");
     }
 
     public HashMap<Integer, String>  obtenerHash(){
-        int length = cars.size() + bikes.length + bicicles.size();// obtener tamaño
-        int count =1;
-        //this.transport.forEach((key, value) -> System.out.println(key + " " + value)); //imprimir para pruebas
-        return this.transport;
+        LinkedHashSet<String> elementos =  new LinkedHashSet<>();
+
+        elementos.addAll(cars);
+        for (String bike  : bikes){
+            elementos.add(bike);
+        }
+        elementos.addAll(bicicles);
+        
+        transport.clear();
+        int clave = 1;
+        for (String elemento : elementos) {
+            if (elemento != null && !elemento.trim().isEmpty()){
+                transport.put(clave++,elemento);
+            } 
+        }     //this.transport.forEach((key, value) -> System.out.println(key + " " + value)); //imprimir para pruebas
+        return transport;
     }
 }
